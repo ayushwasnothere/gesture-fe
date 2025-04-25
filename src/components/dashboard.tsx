@@ -1,11 +1,40 @@
 import { Camera, CircleSlash, LayoutDashboard, RefreshCw } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { CustomButton } from "./button";
 
 export const Dashboard = () => {
-  const [status] = useState<"idle" | "connecting" | "connected" | "error">(
-    "connecting",
-  );
+  const [status, setStatus] = useState<
+    "idle" | "connecting" | "connected" | "error"
+  >("connected");
+
+  const videoRef = useRef<HTMLImageElement | null>(null);
+
+  useEffect(() => {
+    console.log(status);
+  }, [status]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      fetch("http://localhost:5000/camera_status")
+        .then((res) => res.json())
+        .then((data) => {
+          setStatus(data.status);
+        })
+        .catch((err) => {
+          console.error("Failed to fetch camera status", err);
+          setStatus("error");
+        });
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.src = "http://localhost:5000/video_feed";
+    }
+  }, []);
+
   return (
     <div className="w-screen h-screen flex flex-col 2xl:px-80 xl:px-60 px-10 relative pt-30">
       <div className="h-full w-[80%] relative flex flex-col">
@@ -29,7 +58,11 @@ export const Dashboard = () => {
               </div>
             )}
 
-            {status === "connected" && <div>Show camera</div>}
+            {status === "connected" && (
+              <div>
+                <img ref={videoRef} alt="Video feed" />
+              </div>
+            )}
           </div>
           <div className="flex flex-col p-4 justify-center items-center gap-4 text-white font-bold font-inter text-xl mx-auto">
             <CircleSlash className="text-pink-500 h-20 w-20" />
