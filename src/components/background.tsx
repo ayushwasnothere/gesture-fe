@@ -19,9 +19,3 @@ export default function Background() {
     </div>
   );
 }
-{
-  /* <div className="absolute h-[300px] w-[300px] bg-linear-65 from-purple-500 to-pink-500 rounded-full z-50"></div> */
-}
-{
-  /* <div className="absolute h-[300px] w-[300px] bg-linear-65 from-purple-500 to-pink-500 rounded-full z-50 blur-[30px]"></div> */
-}

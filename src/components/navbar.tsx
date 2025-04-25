@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import React from "react";
 
 export const Navbar: React.FC = () => {
@@ -11,15 +12,21 @@ export const Navbar: React.FC = () => {
         </div>
 
         <div className="flex items-center gap-10 font-inter">
-          <div className="text-2xl font-semibold text-white/80 cursor-pointer drop-shadow-[0_0_25px_rgba(255,255,255,0.3)] hover:text-pink-400 hover:scale-105 transition-all ease-in">
-            Home
-          </div>
-          <div className="text-2xl font-semibold text-white/80 cursor-pointer drop-shadow-[0_0_25px_rgba(255,255,255,0.3)] hover:text-pink-400 hover:scale-105 transition-all ease-in">
-            Dashboard
-          </div>
-          <div className="text-2xl font-semibold text-white/80 cursor-pointer drop-shadow-[0_0_25px_rgba(255,255,255,0.3)] hover:text-pink-400 hover:scale-105 transition-all ease-in">
-            About
-          </div>
+          <Link to="/">
+            <div className="text-xl font-semibold text-white/80 cursor-pointer drop-shadow-[0_0_25px_rgba(255,255,255,0.3)] hover:text-pink-400 hover:scale-105 transition-all ease-in">
+              Home
+            </div>
+          </Link>
+          <Link to="/dashboard">
+            <div className="text-xl font-semibold text-white/80 cursor-pointer drop-shadow-[0_0_25px_rgba(255,255,255,0.3)] hover:text-pink-400 hover:scale-105 transition-all ease-in">
+              Dashboard
+            </div>
+          </Link>
+          <Link to="/about">
+            <div className="text-xl font-semibold text-white/80 cursor-pointer drop-shadow-[0_0_25px_rgba(255,255,255,0.3)] hover:text-pink-400 hover:scale-105 transition-all ease-in">
+              About
+            </div>
+          </Link>
         </div>
       </div>
     </nav>
