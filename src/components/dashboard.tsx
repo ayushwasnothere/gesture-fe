@@ -6,8 +6,9 @@ export const Dashboard = () => {
   const [status, setStatus] = useState<
     "idle" | "connecting" | "connected" | "error"
   >(videoRef.current ? "connected" : "idle");
-  const [gesture, setGesture] = useState("brightness_eraser");
+  const [gesture, setGesture] = useState("none");
   const [gestureName, setGestureName] = useState("None");
+  const [draw, setDraw] = useState(false);
 
   useEffect(() => {
     switch (gesture) {
@@ -41,8 +42,8 @@ export const Dashboard = () => {
       fetch("http://localhost:5000/camera_status")
         .then((res) => res.json())
         .then((data) => {
-          setGesture(data.gesture);
           setStatus(data.status);
+          setDraw(data.mode);
         })
         .catch((err) => {
           console.error("Failed to fetch camera status", err);
@@ -52,6 +53,32 @@ export const Dashboard = () => {
 
     return () => clearInterval(interval);
   }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      fetch("http://localhost:5000/gesture_status")
+        .then((res) => res.json())
+        .then((data) => {
+          setGesture(data.gesture);
+        })
+        .catch((err) => {
+          console.error("Failed to fetch camera status", err);
+          setStatus("error");
+        });
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    if (draw) {
+      window.open(
+        "/draw",
+        "DrawingBoard",
+        "width=900,height=700,left=1000,top=100,menubar=no,toolbar=no,location=no,status=no,scrollbars=no,resizable=no",
+      );
+    }
+  }, [draw]);
 
   useEffect(() => {
     if (videoRef.current) {
