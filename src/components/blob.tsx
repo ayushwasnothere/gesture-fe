@@ -1,4 +1,14 @@
+import { useEffect, useState } from "react";
+
 export const Blobb = () => {
+  const [gStart, setGStart] = useState("");
+  const [gStop, setGStop] = useState("");
+
+  useEffect(() => {
+    const rootStyles = getComputedStyle(document.documentElement);
+    setGStart(rootStyles.getPropertyValue("--color-gstart").trim());
+    setGStop(rootStyles.getPropertyValue("--color-gstop").trim());
+  }, []);
   return (
     <div className={`w-[500px] h-[500px]`}>
       <div className={`w-[500px] h-[500px] absolute`}>
@@ -11,8 +21,8 @@ export const Blobb = () => {
         >
           <defs>
             <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" style={{ stopColor: "rgb(254, 0, 242)" }} />
-              <stop offset="100%" style={{ stopColor: "rgb(251, 2, 128)" }} />
+              <stop offset="0%" style={{ stopColor: gStart }} />
+              <stop offset="100%" style={{ stopColor: gStop }} />
             </linearGradient>
           </defs>
           <path fill="url(#gradient)">

@@ -39,22 +39,22 @@ export const Dashboard = () => {
     <div className="w-screen h-screen flex flex-col 2xl:px-80 xl:px-60 px-10 relative pt-30">
       <div className="h-full w-[80%] relative flex flex-col">
         <div className="py-5 flex items-center gap-2 text-white font-bold font-inter text-3xl">
-          <LayoutDashboard className="h-8 w-8 text-pink-300" />
+          <LayoutDashboard className="h-8 w-8 text-aslight" />
           Live Preview
         </div>
         <div className="flex bg-black/30 rounded-t-xl backdrop-blur-[10px] shadow-4xl overflow-hidden">
-          <div className="h-[480px] w-[640px] bg-black flex justify-center items-center relative flex-col rounded-t-xl">
+          <div className="h-[480px] w-[720px] bg-black flex justify-center items-center relative flex-col rounded-t-xl">
             {status === "idle" && (
               <div className="text-center">
-                <Camera className="h-12 w-12 text-pink-400 mx-auto mb-2" />
+                <Camera className="h-12 w-12 text-aslight mx-auto mb-2" />
                 <p className="text-gray-400">Camera disabled</p>
               </div>
             )}
 
             {status === "connecting" && (
               <div className="text-center">
-                <RefreshCw className="h-10 w-10 text-pink-400 mx-auto mb-2 animate-spin" />
-                <p className="text-pink-300">Connecting to camera...</p>
+                <RefreshCw className="h-10 w-10 text-aslight mx-auto mb-2 animate-spin" />
+                <p className="text-aslight">Connecting to camera...</p>
               </div>
             )}
 
@@ -65,7 +65,7 @@ export const Dashboard = () => {
             )}
           </div>
           <div className="flex flex-col p-4 justify-center items-center gap-4 text-white font-bold font-inter text-xl mx-auto">
-            <CircleSlash className="text-pink-500 h-20 w-20" />
+            <CircleSlash className="text-ascent h-20 w-20" />
             <div>No gesture detected</div>
           </div>
         </div>
@@ -77,11 +77,11 @@ export const Dashboard = () => {
             </div>
           </div>
           <div className="flex gap-5 w-full">
-            <div className="p-4 bg-[#250821]/80 rounded-xl w-full">
+            <div className="p-4 bg-background/80 rounded-xl w-full">
               <div className="text-white/60 text-sm">Status</div>
               <div className="text-white text-lg font-semibold">Camers off</div>
             </div>
-            <div className="p-4 bg-[#250821] rounded-xl w-full">
+            <div className="p-4 bg-background rounded-xl w-full">
               <div className="text-white/60 text-sm">Current gesture</div>
               <div className="text-white text-lg font-semibold">None</div>
             </div>

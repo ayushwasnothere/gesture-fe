@@ -10,12 +10,12 @@ export const Home = () => {
         </div>
         <div className="flex pt-10 gap-6">
           <Link to="/dashboard">
-            <button className="px-6 text-2xl bg-white text-pink-500 p-4 rounded-full transition-transform active:scale-95 duration-200 ease-in-out hover:bg-white/90 hover:text-pink-600">
+            <button className="px-6 text-2xl bg-white text-ascent p-4 rounded-full transition-transform active:scale-95 duration-200 ease-in-out hover:bg-white/90 hover:text-asdark">
               Try now!
             </button>
           </Link>
           <Link to="/about">
-            <button className="text-2xl border-2 text-pink-500 p-4 px-6 rounded-full transition-transform active:scale-95 duration-100 ease-in-out hover:bg-pink-400/10 hover:text-pink-600">
+            <button className="text-2xl border-2 text-ascent p-4 px-6 rounded-full transition-transform active:scale-95 duration-100 ease-in-out hover:bg-aslight/10 hover:text-asdark">
               About
             </button>
           </Link>

@@ -2,7 +2,7 @@ import { Blobb } from "./blob.tsx";
 export default function Background() {
   return (
     <div>
-      <div className="flex justify-center items-center h-screen w-screen fixed -z-50 bg-[#250821]">
+      <div className="flex justify-center items-center h-screen w-screen fixed -z-50 bg-background">
         <div className="absolute -left-30 -top-40 rotate-12">
           <Blobb />
         </div>

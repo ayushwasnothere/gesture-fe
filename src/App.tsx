@@ -6,10 +6,12 @@ import { Home } from "./components/home";
 import { Navbar } from "./components/navbar";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { Ownership } from "./components/ownership";
+import { ThemeProvider } from "./components/themeProvider";
 
 function App() {
   return (
     <>
+      <ThemeProvider>
       <BrowserRouter>
         <Navbar />
         <Background />
@@ -22,6 +24,7 @@ function App() {
           <Route path="/about" element={<About />} />
         </Routes>
       </BrowserRouter>
+      </ThemeProvider>
     </>
   );
 }
