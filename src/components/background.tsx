@@ -1,5 +1,10 @@
+import { useLocation } from "react-router-dom";
 import { Blobb } from "./blob.tsx";
 export default function Background() {
+  const { pathname: path } = useLocation();
+  if (path === "/draw") {
+    return null;
+  }
   return (
     <div>
       <div className="flex justify-center items-center h-screen w-screen fixed -z-50 bg-background">

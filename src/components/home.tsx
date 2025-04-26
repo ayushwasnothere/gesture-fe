@@ -3,7 +3,7 @@ export const Home = () => {
   return (
     <div className="px-80 pt-30 relative h-full w-full flex items-center justify-between">
       <div className="text-white pt-25 text-7xl/20 font-inter font-bold w-1/2">
-        <div className="text-pink-500">Control Everything with a Wave —</div>
+        <div className="text-ascent">Control Everything with a Wave —</div>
         <div className="">Meet Gesture Flow.</div>
         <div className="text-sm pt-6 font-semibold text-white/80">
           Navigate your world with natural, intuitive gestures.

@@ -5,11 +5,23 @@ import { useTheme } from "./themeProvider";
 export const Navbar: React.FC = () => {
   const { toggleTheme } = useTheme();
   const { pathname: path } = useLocation();
+  if (path === "/draw") {
+    return null;
+  }
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-[5px] bg-black/30 px-8 2xl:px-80 py-6 select-none">
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-2">
-          <div className="text-white font-bold text-6xl font-inter drop-shadow-[0_0_25px_rgba(255,255,255,0.3)]">
+          <div
+            className="text-white font-bold text-6xl font-inter drop-shadow-[0_0_25px_rgba(255,255,255,0.3)]"
+            onClick={() => {
+              window.open(
+                "/draw",
+                "DrawingBoard",
+                "width=900,height=700,left=1000,top=100,menubar=no,toolbar=no,location=no,status=no,scrollbars=no,resizable=no",
+              );
+            }}
+          >
             Gesture Flow
           </div>
         </div>
